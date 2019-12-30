@@ -16,14 +16,14 @@ $(document).ready(function(){
     let user2 = { nombre: userReg.val(), pass: passReg.val() };
 
     //session
-    let usrId ="";
+    let usrId = "";
     let getID = function(){
         $.ajax(settingsGET).done(function (response) {
-            // this is pretty hardcore lmao; 
-            //se trunca la tabal del json en id, porque este no se necesita
-            response.forEach(element => {
-                if ((element["nombre"] === userLogin.val()) && (element["pass"] === passLogin.val())) {
-                    usrId = element["id"];
+
+            response.forEach(element => {  // Se buscan los datos que corresponden al user y pass
+                if (not ((element["nombre"] !== userLogin.val()) || (element["pass"] !== passLogin.val()))) {
+                    usrId = element["id"]; // Se asigna en caso de ser encontrado.
+                    break;
                 }
             });
         })
@@ -31,7 +31,7 @@ $(document).ready(function(){
     }
 
     //variables del chat
-    let chat = $("#chat");
+    let chat = $("#chat"); 
 
     //variable del nav
     let nav = $("#nav");
@@ -56,44 +56,66 @@ $(document).ready(function(){
         "data": ""
     }
 
+    //fecha
+    let date_time="";
+    let getFecha = function(){
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        let time = today.getHours() + ":" + today.getMinutes();
+        //today = yyyy+ '-' + mm + '-' + dd ;
+        //date_time = today + "T" + time;;
+    }
+
 
     //funcion de login
+
     login.submit(function(e){
-        // prevenir el comportamiento por defecto del form
-        e.preventDefault();  
-        // check si los campos estan vacios
-        if((userLogin.val() !== "") && (passLogin.val() !== "")){
-            //usar ajax para la respuesta
-            $.ajax(settingsGET).done(function (response) {
-                // this is pretty hardcore lmao; 
-                //se trunca la tabal del json en id, porque este no se necesita
+        
+        e.preventDefault();  // prevenir el comportamiento por defecto del form
+        
+        if( not ((userLogin.val() === "") || (passLogin.val() === ""))){   // check si los campos estan vacios
+            
+            $.ajax(settingsGET).done(function (response){   //usar ajax para la respuesta
                 response.forEach(element => { 
-                    if ((element["nombre"] === userLogin.val()) && (element["pass"] === passLogin.val())){
-                            usrId = element["id"];
-                            flag =true;
-                            console.log(usrId);
+                    if (not ((element["nombre"] !== userLogin.val()) || (element["pass"] !== passLogin.val()))){ // Caso en que se encuentra el elemento
+                        
+                        usrId = element["id"];
+                        console.log(usrId);
+
+                        // cambio de estado de la pagina
+                        console.log(JSON.stringify({
+                            nombre: userLogin.val(),
+                            pass: passLogin.val(),
+                        }),);
+
+                        login.fadeOut();
+                        redirReg.fadeOut();
+                        nav.fadeIn();
+
+                        delete element["id"];
+                        flag = true
+                        break;
                     }
                     delete element["id"]; });
-                // esta wea es la raja
-                if (flag){
-                    // cambio de estado de la pagina
-                    console.log(JSON.stringify({
-                        nombre: userLogin.val(),
-                        pass: passLogin.val(),
-                    }),);
-                    login.fadeOut();
-                    redirReg.fadeOut();
-                    nav.fadeIn();
-                } else {
+
+                if (flag === false) {
                     //usuario no registrado
                     login.append("<h6 style='color: white; font - size: 2.5em; text-align: center'><br>Ususario no existe</h6>");
                 }
             });
+
         }else {
             //en caso de que los campos se encuentren vacios
             login.append("<h6 style='color: white; font - size: 2.5em; text-align: center'><br>No se permiten campos vacíos</h6>"); 
         }
     }); 
+
+
+
+
+
 
 
     // funcion que lleva a registro en la database
@@ -151,6 +173,7 @@ $(document).ready(function(){
             //en caso de que los campos se encuentren vacios
             register.append("<h6 style='color: white; font - size: 2.5em; text-align: center'><br>No se permiten campos vacíos</h6>");
         }
+
         /*
         <div class="row"> // por si quiere el correo lmao
             <div class="col">
@@ -169,20 +192,25 @@ $(document).ready(function(){
 
     query.submit(function(e){//yay
         e.preventDefault();
-        if ((title.val() !== "") && (descrip.val() !== "")) {
-            getID();        
-            let date = new Date();
+        if (not ((title.val() === "") && (descrip.val() === ""))) {
+            getID();
+            getFecha();
+            let today = new Date();
+            console.log(JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), fecha_hora: today, usuarioId: usrId, }));
             $.ajax({
                 type: "POST",
                 url: "http://localhost:8000/consulta/consulta",// api url
-                data: JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), 
-                    fecha_hora: date.toDateString(), usuarioId: usrId,}),
+                data: JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), fecha_hora: today, usuarioId: usrId,}),
                 dataType: 'json',
                 contentType: "application/json",
+                
                 success: function (data) { 
-                    console.log(JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), 
-                        fecha_hora: date.toDateString(), usuarioId: usrId, })); },
-                    failure: function (errMsg) { console.log("lmao") }
+                    console.log(data); 
+                },
+
+                failure: function (errMsg) { 
+                    console.log("lmao") 
+                }
             });
             nav.append("<h6 style='color: black; font - size: 2.5em; text-align: center'><br>Cosulta Realizada</h6>");
             query.fadeOut();

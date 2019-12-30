@@ -33,13 +33,13 @@ public class Consulta{
     String descripcion;
 
     @Column(name = "fecha_hora")
-    String fecha_hora;
+    Date fecha_hora;
 
     public Consulta(){
 
     }
 
-    public Consulta(int consultaId, int usuarioId, String titulo, String descripcion, String fecha_hora){
+    public Consulta(int consultaId, int usuarioId, String titulo, String descripcion, Date fecha_hora){
         this.consultaId = consultaId;
         this.usuarioId = usuarioId;
         this.titulo = titulo;
@@ -71,10 +71,10 @@ public class Consulta{
     public String getDescripcion(){
         return this.descripcion;
     }
-    public void setFechaHora(String fecha_hora){
+    public void setFechaHora(Date fecha_hora){
         this.fecha_hora = fecha_hora;
     }
-    public String getFechaHora(){
+    public Date getFechaHora(){
         return this.fecha_hora;
     }
 }

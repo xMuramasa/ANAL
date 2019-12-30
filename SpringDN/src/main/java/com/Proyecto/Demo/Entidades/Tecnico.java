@@ -11,14 +11,6 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "Tecnico")
 @Entity
 
-/*
-public class Tecnico extends Persona{
-	
-	public void aceptarConsulta() {
-		
-	}
-}
-*/
 public class Tecnico {
 
     @Id

@@ -56,6 +56,18 @@ $(document).ready(function(){
         "data": ""
     }
 
+    //fecha lmao
+    let date_time="";
+    let getFecha = function(){
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        let time = today.getHours() + ":" + today.getMinutes();
+        //today = yyyy+ '-' + mm + '-' + dd ;
+        //date_time = today + "T" + time;;
+    }
+
 
     //funcion de login
     login.submit(function(e){
@@ -170,18 +182,18 @@ $(document).ready(function(){
     query.submit(function(e){//yay
         e.preventDefault();
         if ((title.val() !== "") && (descrip.val() !== "")) {
-            getID();        
-            let date = new Date();
+            getID();
+            getFecha();
+            let today = new Date();
+            console.log(JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), fecha_hora: today, usuarioId: usrId, }));
             $.ajax({
                 type: "POST",
                 url: "http://localhost:8000/consulta/consulta",// api url
-                data: JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), 
-                    fecha_hora: date.toDateString(), usuarioId: usrId,}),
+                data: JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), fecha_hora: today, usuarioId: usrId,}),
                 dataType: 'json',
                 contentType: "application/json",
                 success: function (data) { 
-                    console.log(JSON.stringify({ titulo: title.val(), descripcion: descrip.val(), 
-                        fecha_hora: date.toDateString(), usuarioId: usrId, })); },
+                    console.log(data); },
                     failure: function (errMsg) { console.log("lmao") }
             });
             nav.append("<h6 style='color: black; font - size: 2.5em; text-align: center'><br>Cosulta Realizada</h6>");
