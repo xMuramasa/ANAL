@@ -24,7 +24,7 @@ private int mensajeId;
 private String mensaje;
 
 @Column(name="consultaId")
-private int consulta;
+private int consultaId;
 
 @Column(name="emisorId")
 private int emisorId;
@@ -40,11 +40,11 @@ public Mensaje(int mensajeId, String mensaje, int consultaId, int emisorId) {
     this.emisorId = emisorId;
 }
 
-public int getId() {
-    return this.id;
+public int getMensajeId() {
+    return this.mensajeId;
 }
-public void setId(int id) {
-    this.id = id;
+public void setMensajeId(int id) {
+    this.mensajeId = id;
 }
 public String getMensaje() {
     return this.mensaje;
@@ -52,17 +52,17 @@ public String getMensaje() {
 public void setMensaje(String mensaje) {
     this.mensaje = mensaje;
 }
-public int getConsulta() {
-    return this.consulta;
+public int getConsultaId() {
+    return this.consultaId;
 }
-public void setConsulta(int consulta) {
-    this.consulta = consulta;
+public void setConsultaId(int consultaId) {
+    this.consultaId = consultaId;
 }
-public int getEmisor() {
-    return this.emisor;
+public int getEmisorId() {
+    return this.emisorId;
 }
-public void setEmisor(int emisor) {
-    this.emisor = emisor;
+public void setEmisorId(int emisorId) {
+    this.emisorId = emisorId;
 }
 
 }
