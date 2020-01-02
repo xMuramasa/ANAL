@@ -41,7 +41,7 @@ public class TecnicoServicio{
         }
     }
 
-    public Tecnico obtenerporId(int usuarioId){
-        return repositorio.findByusuarioId(usuarioId);
+    public Tecnico obtenerporId(int tecnicoId){
+        return repositorio.findBytecnicoId(tecnicoId);
     }
 }

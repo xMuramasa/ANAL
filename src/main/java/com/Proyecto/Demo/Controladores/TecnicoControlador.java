@@ -26,8 +26,8 @@ public class TecnicoControlador{
     TecnicoServicio servicio;
 
     @GetMapping("/tecnico")
-    public Tecnico obtenerTecnico(@RequestParam(name="usuarioId", required=true) int usuarioId){
-        return servicio.obtenerporId(usuarioId);
+    public Tecnico obtenerTecnico(@RequestParam(name="tecnicoId", required=true) int tecnicoId){
+        return servicio.obtenerporId(tecnicoId);
     }
 
     @PostMapping("/tecnico")
@@ -41,8 +41,8 @@ public class TecnicoControlador{
     }
 
     @DeleteMapping("/tecnico/{id}")
-    public boolean borrarTecnico(@PathVariable("usuarioId") int usuarioId){
-        return servicio.borrar(usuarioId);
+    public boolean borrarTecnico(@PathVariable("tecnicoId") int tecnicoId){
+        return servicio.borrar(tecnicoId);
     }
         
     @GetMapping("/getAll")

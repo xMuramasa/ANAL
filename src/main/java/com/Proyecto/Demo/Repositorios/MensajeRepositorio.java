@@ -1,4 +1,4 @@
-package main.java.com.Proyecto.Demo.Repositorios;
+package com.Proyecto.Demo.Repositorios;
 
 import java.io.Serializable;
 import com.Proyecto.Demo.Entidades.Mensaje;
@@ -10,5 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface MensajeRepositorio extends JpaRepository<Mensaje, Serializable> {
 
     public abstract Mensaje findBymensajeId(int mensajeId);
+
+    public abstract List<Mensaje> findAllByconsultaId(int consultaId);
 
 }

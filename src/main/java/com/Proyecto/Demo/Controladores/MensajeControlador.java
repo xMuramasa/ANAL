@@ -48,4 +48,9 @@ public class MensajeControlador{
     public List<Mensaje> obtenerTodos() {
         return servicio.obtenerTodos();
     }
+
+    @GetMapping("/getAllByQuery")
+    public List<Mensaje> findByconsultaId(@PathVariable("consultaId") int consultaId) {
+        return servicio.findAllByconsultaId(consultaId);
+    }
 }

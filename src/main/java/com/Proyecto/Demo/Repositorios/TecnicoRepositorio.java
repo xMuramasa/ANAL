@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository("tecnicorepositorio")
 public interface TecnicoRepositorio extends JpaRepository<Tecnico, Serializable> {
 
-    public abstract Tecnico findByusuarioId(int usuarioId);
+    public abstract Tecnico findBytecnicoId(int tecnicoId);
     public abstract List<Tecnico> findAll();
 }

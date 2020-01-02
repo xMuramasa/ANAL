@@ -1,4 +1,4 @@
-package main.java.com.Proyecto.Demo.Servicios;
+package com.Proyecto.Demo.Servicios;
 
 import com.Proyecto.Demo.Entidades.Consulta;
 import com.Proyecto.Demo.Repositorios.ConsultaRepositorio;
@@ -43,5 +43,9 @@ public class MensajeServicio{
 
     public Mensaje obtenerporId(int mensajeId){
         return repositorio.findBymensajeId(mensajeId);
+    }
+
+    public List<Mensaje> findByconsultaId(int consultaId) {
+        return repositorio.findAllByconsultaId(consultaId);
     }
 }
