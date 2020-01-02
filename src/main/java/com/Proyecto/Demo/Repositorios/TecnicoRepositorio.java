@@ -1,6 +1,8 @@
 package com.Proyecto.Demo.Repositorios;
 
 import java.io.Serializable;
+import java.util.List;
+
 import com.Proyecto.Demo.Entidades.Tecnico;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +12,5 @@ import org.springframework.stereotype.Repository;
 public interface TecnicoRepositorio extends JpaRepository<Tecnico, Serializable> {
 
     public abstract Tecnico findByusuarioId(int usuarioId);
-
+    public abstract List<Tecnico> findAll();
 }

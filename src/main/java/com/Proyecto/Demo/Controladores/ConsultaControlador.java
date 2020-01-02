@@ -36,7 +36,7 @@ public class ConsultaControlador{
         return servicio.crear(consulta);
     }
 
-    @PutMapping("/cliente")
+    @PutMapping("/consulta")
     public boolean actualizarConsulta(@RequestBody @Valid Consulta consulta){
         return servicio.actualizar(consulta);
     }

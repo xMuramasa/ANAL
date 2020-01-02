@@ -11,22 +11,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "Tecnico")
 @Entity
 
-/*
-public class Tecnico extends Persona{
-	
-	public void aceptarConsulta() {
-		
-	}
-}
-*/
+
 public class Tecnico {
 
     @Id
     @GenericGenerator(name = "incrementoId", strategy = "increment")
     @GeneratedValue(generator = "incrementoId")
     
-    @Column(name = "usuarioId")
-    int usuarioId;
+    @Column(name = "tecnicoId")
+    int tecnicoId;
 
     @Column(name = "nombre")
     String nombre;
@@ -34,12 +27,12 @@ public class Tecnico {
     @Column(name = "pass") //sabemos que no se hace jsj
     String pass;
 
-    public void setid(int id){
-        this.usuarioId = id;
+    public void setTecnicoId(int id){
+        this.tecnicoId = id;
     }
 
-    public int getid(){
-        return this.usuarioId;
+    public int getTecnicoId(){
+        return this.tecnicoId;
     }
     public void setNombre(String nombre){
         this.nombre = nombre;

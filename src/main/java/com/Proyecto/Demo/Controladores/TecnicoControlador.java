@@ -1,6 +1,8 @@
 package com.Proyecto.Demo.Controladores;
 import javax.validation.Valid;
 
+import java.util.List;
+
 import com.Proyecto.Demo.Entidades.Tecnico;
 import com.Proyecto.Demo.Servicios.TecnicoServicio;
 
@@ -41,5 +43,10 @@ public class TecnicoControlador{
     @DeleteMapping("/tecnico/{id}")
     public boolean borrarTecnico(@PathVariable("usuarioId") int usuarioId){
         return servicio.borrar(usuarioId);
+    }
+        
+    @GetMapping("/getAll")
+    public List<Tecnico> obtenerTodos() {
+        return servicio.obtenerTodos();
     }
 }

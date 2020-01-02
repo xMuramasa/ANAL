@@ -1,6 +1,5 @@
 package com.Proyecto.Demo.Entidades;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +21,11 @@ public class Consulta{
     @Column(name = "consultaId")
     int consultaId;
 
-    @Column(name = "usuario_id")
+    @Column(name = "usuarioId")
     int usuarioId;
+    
+    @Column(name = "tecnicoId")
+    int tecnicoId;
 
     @Column(name = "titulo")
     String titulo;
@@ -38,9 +40,10 @@ public class Consulta{
 
     }
 
-    public Consulta(int consultaId, int usuarioId, String titulo, String descripcion, String fecha){
+    public Consulta(int consultaId, int usuarioId, int tecnicoId, String titulo, String descripcion, String fecha){
         this.consultaId = consultaId;
         this.usuarioId = usuarioId;
+        this.tecnicoId = tecnicoId;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fecha = fecha;
@@ -57,6 +60,12 @@ public class Consulta{
     }
     public int getUsuarioId(){
         return this.usuarioId;
+    }
+    public void setTecnicoId(int tecnicoId){
+        this.usuarioId = tecnicoId;
+    }
+    public int getTecnicoId(){
+        return this.tecnicoId;
     }
     public void setTitulo(String titulo){
         this.titulo = titulo;
