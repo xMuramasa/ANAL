@@ -30,6 +30,9 @@ public class ConsultaControlador{
 
     @PostMapping("/consulta")
     public boolean agregarConsulta(@RequestBody @Valid Consulta consulta){
+        System.out.println(consulta.getDescripcion()+ " " +consulta.getUsuarioId()+ " " +
+            consulta.getFecha()+ " " +consulta.getDescripcion()+ " " +consulta.getConsultaId()+" "+
+            consulta.getTitulo());
         return servicio.crear(consulta);
     }
 

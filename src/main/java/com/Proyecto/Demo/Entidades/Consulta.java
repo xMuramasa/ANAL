@@ -22,7 +22,7 @@ public class Consulta{
     @Column(name = "consultaId")
     int consultaId;
 
-    @Column(name = "usuarioId")
+    @Column(name = "usuario_id")
     int usuarioId;
 
     @Column(name = "titulo")
@@ -31,31 +31,31 @@ public class Consulta{
     @Column(name = "descripcion")
     String descripcion;
 
-    @Column(name = "fecha_hora")
-    String fecha_hora;
+    @Column(name = "fecha")
+    String fecha;
 
     public Consulta(){
 
     }
 
-    public Consulta(int consultaId, int usuarioId, String titulo, String descripcion, String fecha_hora){
+    public Consulta(int consultaId, int usuarioId, String titulo, String descripcion, String fecha){
         this.consultaId = consultaId;
         this.usuarioId = usuarioId;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.fecha_hora = fecha_hora;
+        this.fecha = fecha;
     }
 
-    public void setConsultaid(int consultaId){
+    public void setConsultaId(int consultaId){
         this.consultaId = consultaId;
     }
-    public int getConsultaid(){
+    public int getConsultaId(){
         return this.consultaId;
     }
-    public void setUsrid(int usuarioId){
+    public void setUsuarioId(int usuarioId){
         this.usuarioId = usuarioId;
     }
-    public int getUsrid(){
+    public int getUsuarioId(){
         return this.usuarioId;
     }
     public void setTitulo(String titulo){
@@ -70,10 +70,10 @@ public class Consulta{
     public String getDescripcion(){
         return this.descripcion;
     }
-    public void setFechaHora(String fecha_hora){
-        this.fecha_hora = fecha_hora;
+    public void setFecha(String fecha){
+        this.fecha = fecha;
     }
-    public String getFechaHora(){
-        return this.fecha_hora;
+    public String getFecha(){
+        return this.fecha;
     }
 }
