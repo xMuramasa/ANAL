@@ -1,5 +1,9 @@
-package main.java.com.Proyecto.Demo.Controladores;
+package com.Proyecto.Demo.Controladores;
+
 import javax.validation.Valid;
+
+import java.util.List;
+
 
 import com.Proyecto.Demo.Entidades.Mensaje;
 import com.Proyecto.Demo.Servicios.MensajeServicio;
@@ -22,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MensajeControlador{
     @Autowired
     @Qualifier("mensajeservicio")
-    Mensajeervicio servicio;
+    MensajeServicio servicio;
 
     @GetMapping("/mensaje")
     public Mensaje obtenerMensaje(@RequestParam(name="mensajeId", required=true) int mensajeId){
@@ -50,7 +54,7 @@ public class MensajeControlador{
     }
 
     @GetMapping("/getAllByQuery")
-    public List<Mensaje> findByconsultaId(@PathVariable("consultaId") int consultaId) {
-        return servicio.findAllByconsultaId(consultaId);
+    public List<Mensaje> obtenerTodosPorconsultaId(@PathVariable("consultaId") int consultaId) {
+        return servicio.obtenerTodosPorconsultaId(consultaId);
     }
 }

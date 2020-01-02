@@ -1,11 +1,14 @@
 package com.Proyecto.Demo.Servicios;
 
-import com.Proyecto.Demo.Entidades.Consulta;
-import com.Proyecto.Demo.Repositorios.ConsultaRepositorio;
+import com.Proyecto.Demo.Entidades.Mensaje;
+import com.Proyecto.Demo.Repositorios.MensajeRepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 
 @Service("mensajeservicio")
 public class MensajeServicio{
@@ -45,7 +48,10 @@ public class MensajeServicio{
         return repositorio.findBymensajeId(mensajeId);
     }
 
-    public List<Mensaje> findByconsultaId(int consultaId) {
+    public List<Mensaje> obtenerTodos() {
+        return repositorio.findAll();
+    }
+    public List<Mensaje> obtenerTodosPorconsultaId(int consultaId) {
         return repositorio.findAllByconsultaId(consultaId);
     }
 }

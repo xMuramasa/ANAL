@@ -1,5 +1,7 @@
 package com.Proyecto.Demo.Servicios;
 
+import java.util.List;
+
 import com.Proyecto.Demo.Entidades.Tecnico;
 import com.Proyecto.Demo.Repositorios.TecnicoRepositorio;
 
@@ -8,40 +10,44 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service("tecnicoservicio")
-public class TecnicoServicio{
+public class TecnicoServicio {
     @Autowired
     @Qualifier("tecnicorepositorio")
     private TecnicoRepositorio repositorio;
 
-    public boolean crear(Tecnico tecnico){
-        try{
+    public boolean crear(Tecnico tecnico) {
+        try {
             repositorio.save(tecnico);
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public boolean actualizar(Tecnico tecnico){
-        try{
+    public boolean actualizar(Tecnico tecnico) {
+        try {
             repositorio.save(tecnico);
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public boolean borrar(int usuarioId){
-        try{
-            Tecnico tecnico = repositorio.findByusuarioId(usuarioId);
+    public boolean borrar(int tecnicoId) {
+        try {
+            Tecnico tecnico = repositorio.findBytecnicoId(tecnicoId);
             repositorio.delete(tecnico);
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public Tecnico obtenerporId(int tecnicoId){
+    public Tecnico obtenerporId(int tecnicoId) {
         return repositorio.findBytecnicoId(tecnicoId);
+    }
+
+    public List<Tecnico> obtenerTodos() {
+        return repositorio.findAll();
     }
 }

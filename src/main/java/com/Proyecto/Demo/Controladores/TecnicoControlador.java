@@ -46,7 +46,7 @@ public class TecnicoControlador{
     }
         
     @GetMapping("/getAll")
-    public List<Tecnico> obtenerTodos() {
+    public List<Tecnico> obtenerTodos(){
         return servicio.obtenerTodos();
     }
 }
