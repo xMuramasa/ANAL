@@ -1,6 +1,8 @@
 package com.Proyecto.Demo.Controladores;
 import javax.validation.Valid;
 
+import java.util.List;
+
 import com.Proyecto.Demo.Entidades.Consulta;
 import com.Proyecto.Demo.Servicios.ConsultaServicio;
 
@@ -44,5 +46,15 @@ public class ConsultaControlador{
     @DeleteMapping("/consulta/{id}")
     public boolean borrarConsulta(@PathVariable("consultaId") int consultaId){
         return servicio.borrar(consultaId);
+    }
+
+    @GetMapping("/getAll")
+    public List<Consulta> obtenerTodos() {
+        return servicio.obtenerTodos();
+    }
+
+    @GetMapping("/getAllbyUserId/{id}")
+    public List<Consulta> obtenerTodosPorusuarioId(@PathVariable("usuarioId") int usuarioId) {
+        return servicio.obtenerTodosPorusuarioId(usuarioId);
     }
 }

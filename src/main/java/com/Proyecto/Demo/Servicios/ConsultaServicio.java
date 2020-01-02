@@ -1,5 +1,7 @@
 package com.Proyecto.Demo.Servicios;
 
+import java.util.List;
+
 import com.Proyecto.Demo.Entidades.Consulta;
 import com.Proyecto.Demo.Repositorios.ConsultaRepositorio;
 
@@ -44,4 +46,13 @@ public class ConsultaServicio{
     public Consulta obtenerporId(int consultaId){
         return repositorio.findByconsultaId(consultaId);
     }
+
+    public List<Consulta> obtenerTodos() {
+        return repositorio.findAll();
+    }
+
+    public List<Consulta> obtenerTodosPorusuarioId(int usuarioId) {
+        return repositorio.findAllByusuarioId(usuarioId);
+    }
+
 }
