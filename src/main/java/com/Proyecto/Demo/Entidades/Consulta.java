@@ -62,7 +62,7 @@ public class Consulta{
         return this.usuarioId;
     }
     public void setTecnicoId(int tecnicoId){
-        this.usuarioId = tecnicoId;
+        this.tecnicoId = tecnicoId;
     }
     public int getTecnicoId(){
         return this.tecnicoId;
