@@ -61,6 +61,7 @@ public class Consulta{
     public int getUsuarioId(){
         return this.usuarioId;
     }
+    //this is a comment
     public void setTecnicoId(int tecnicoId){
         this.tecnicoId = tecnicoId;
     }
