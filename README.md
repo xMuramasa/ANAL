@@ -1,12 +1,10 @@
 # Danger Noodle
 
-Ian PÈrez      201773549-K
-JosÈ Quezada   201773528-7
-MartÌn Salinas 201773557-0
+Ian P√©rez      201773549-K
+Jos√© Quezada   201773528-7
+Martin Salinas 201773557-0
 
-
-
-Instrucciones
+## Instrucciones
 
 Modificar src/resource/application.properties con datos de base de datos Postgres
 
@@ -16,12 +14,17 @@ mvn install
 mvn spring-boot:run
 
 Phonegap
-AÒadir proyecto dangerNoodleMobile a Phonegap
-Abrir direcciÛn en navegador
+A√±adir proyecto dangerNoodleMobile a Phonegap
+Abrir direcci√≥n en navegador
 
+## Usando la app
 
-Historia de usuario:
-Crear consulta
+Registrarse y luego iniciar sesi√≥n. Solo se encuentra implementado el entoro de Cliente a exepci√≥n de los pagos.
+Crear consulta est√° en el navbar.
+En "mis consultas activas y chats", se pueden ver las consultas y un bot√≥n que redirecciona al chat de dicha consulta.
 
-Para esto, registrarse y luego iniciar sesiÛn recargando la p·gina
-en men˙ hacer clic en crear consulta y rellenar los campos
+## Historias de usuario realizadas en esta entrega
+
+- Crear consulta
+- Acceso a historial de respuestas
+- Comunicaci√≥n entre cliente y t√©cnico.
