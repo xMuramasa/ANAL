@@ -1,9 +1,9 @@
-package com.Proyecto.Demo.Servicios;
+package com.proyecto.demo.servicios;
 
 import java.util.List;
 
-import com.Proyecto.Demo.Entidades.Cliente;
-import com.Proyecto.Demo.Repositorios.ClienteRepositorio;
+import com.proyecto.demo.entidades.Cliente;
+import com.proyecto.demo.repositorios.ClienteRepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

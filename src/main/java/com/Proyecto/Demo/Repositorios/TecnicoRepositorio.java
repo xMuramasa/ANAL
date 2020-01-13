@@ -1,9 +1,9 @@
-package com.Proyecto.Demo.Repositorios;
+package com.proyecto.demo.repositorios;
 
 import java.io.Serializable;
 import java.util.List;
 
-import com.Proyecto.Demo.Entidades.Tecnico;
+import com.proyecto.demo.entidades.Tecnico;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

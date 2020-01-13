@@ -1,10 +1,10 @@
-package com.Proyecto.Demo.Controladores;
+package com.proyecto.demo.controladores;
 import javax.validation.Valid;
 
 import java.util.List;
 
-import com.Proyecto.Demo.Entidades.Tecnico;
-import com.Proyecto.Demo.Servicios.TecnicoServicio;
+import com.proyecto.demo.entidades.Tecnico;
+import com.proyecto.demo.servicios.TecnicoServicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,4 +1,4 @@
-package com.Proyecto.Demo.Entidades;
+package com.proyecto.demo.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

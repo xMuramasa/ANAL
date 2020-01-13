@@ -1,12 +1,12 @@
-package com.Proyecto.Demo.Controladores;
+package com.proyecto.demo.controladores;
 
 import javax.validation.Valid;
 
 import java.util.List;
 
 
-import com.Proyecto.Demo.Entidades.Mensaje;
-import com.Proyecto.Demo.Servicios.MensajeServicio;
+import com.proyecto.demo.entidades.Mensaje;
+import com.proyecto.demo.servicios.MensajeServicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

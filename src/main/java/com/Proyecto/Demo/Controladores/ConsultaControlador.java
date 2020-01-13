@@ -1,10 +1,10 @@
-package com.Proyecto.Demo.Controladores;
+package com.proyecto.demo.controladores;
 import javax.validation.Valid;
 
 import java.util.List;
 
-import com.Proyecto.Demo.Entidades.Consulta;
-import com.Proyecto.Demo.Servicios.ConsultaServicio;
+import com.proyecto.demo.entidades.Consulta;
+import com.proyecto.demo.servicios.ConsultaServicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,9 +32,6 @@ public class ConsultaControlador{
 
     @PostMapping("/consulta")
     public boolean agregarConsulta(@RequestBody @Valid Consulta consulta){
-        System.out.println(consulta.getDescripcion()+ " " +consulta.getUsuarioId()+ " " +
-            consulta.getFecha()+ " " +consulta.getDescripcion()+ " " +consulta.getConsultaId()+" "+
-            consulta.getTitulo());
         return servicio.crear(consulta);
     }
 
@@ -43,8 +40,8 @@ public class ConsultaControlador{
         return servicio.actualizar(consulta);
     }
 
-    @DeleteMapping("/consulta/{id}")
-    public boolean borrarConsulta(@PathVariable("consultaId") int consultaId){
+    @DeleteMapping("/consulta/{consultaId}")
+    public boolean borrarConsulta(@PathVariable(name="consultaId") int consultaId){
         return servicio.borrar(consultaId);
     }
 

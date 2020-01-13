@@ -1,4 +1,4 @@
-package com.Proyecto.Demo.Entidades;
+package com.proyecto.demo.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,12 +50,27 @@ public class Pago {
     }
 
 
-    public void setUsuarioId(int clienteId) {
+    public void setClienteId(int clienteId) {
         this.clienteId = clienteId;
     }
 
-    public int getUsuarioId() {
+    public int getClienteId() {
         return this.clienteId;
+    }
+
+    public void setConsultaId(int consultaId) {
+        this.consultaId = consultaId;
+    }
+
+    public int getConsultaId() {
+        return this.consultaId;
+    }
+    public void setPagoId(int pagoId) {
+        this.pagoId = pagoId;
+    }
+
+    public int getPagoId() {
+        return this.pagoId;
     }
 
     // this is a comment

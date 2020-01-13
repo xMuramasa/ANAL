@@ -1,4 +1,4 @@
-package com.Proyecto.Demo.Entidades;
+package com.proyecto.demo.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +19,9 @@ public class Mensaje{
 @Column(name="mensajeId")
 private int mensajeId;
 
-@Column(name="mensaje")
+@Column(name="texto")
 @Type(type="text")
-private String mensaje;
+private String texto;
 
 @Column(name="consultaId")
 private int consultaId;
@@ -33,9 +33,9 @@ public Mensaje(){
 
 }
 
-public Mensaje(int mensajeId, String mensaje, int consultaId, int emisorId) {
+public Mensaje(int mensajeId, String texto, int consultaId, int emisorId) {
     this.mensajeId = mensajeId;
-    this.mensaje = mensaje;
+    this.texto = texto;
     this.consultaId = consultaId;
     this.emisorId = emisorId;
 }
@@ -46,11 +46,11 @@ public int getMensajeId() {
 public void setMensajeId(int id) {
     this.mensajeId = id;
 }
-public String getMensaje() {
-    return this.mensaje;
+public String getTexto() {
+    return this.texto;
 }
-public void setMensaje(String mensaje) {
-    this.mensaje = mensaje;
+public void setTexto(String texto) {
+    this.texto = texto;
 }
 public int getConsultaId() {
     return this.consultaId;

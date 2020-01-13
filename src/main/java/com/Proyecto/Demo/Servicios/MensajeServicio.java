@@ -1,7 +1,7 @@
-package com.Proyecto.Demo.Servicios;
+package com.proyecto.demo.servicios;
 
-import com.Proyecto.Demo.Entidades.Mensaje;
-import com.Proyecto.Demo.Repositorios.MensajeRepositorio;
+import com.proyecto.demo.entidades.Mensaje;
+import com.proyecto.demo.repositorios.MensajeRepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
