@@ -33,6 +33,9 @@ public class Consulta{
     @Column(name = "descripcion")
     String descripcion;
 
+    @Column(name = "visita")
+    int visita = 0;
+
     @Column(name = "fecha")
     String fecha;
 
@@ -55,6 +58,14 @@ public class Consulta{
     public int getConsultaId(){
         return this.consultaId;
     }
+
+    public void setVisita(int visita){
+        this.visita = visita;
+    }
+    public int getVisita(){
+        return this.visita;
+    }
+
     public void setUsuarioId(int usuarioId){
         this.usuarioId = usuarioId;
     }
